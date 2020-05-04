@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './button.dart';
 
 void main() => runApp(MyApp());
 
@@ -83,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
               gridDelegate:
                   SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
               itemBuilder: (BuildContext context, int index) {
-                return Text(buttons[index]);
+                return Button(text: buttons[index]);
               },
             ),
           ),
