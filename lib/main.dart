@@ -53,14 +53,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double phoneWidth = MediaQuery.of(context).size.width;
+    double phoneLength = MediaQuery.of(context).size.height;
     ThemeData themeData = Theme.of(context);
+
     return Scaffold(
-      appBar: AppBar(),
       body: Column(
         children: <Widget>[
-          Spacer(flex: 1),
+          // SizedBox(height: phoneLength * 0.20),
           Expanded(
             flex: 2,
+            // width: phoneWidth,
+            // color: Colors.grey,
+            // height: phoneLength * 0.20,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.end,
@@ -76,15 +81,18 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
-          Spacer(flex: 1),
-          Expanded(
-            flex: 6,
+          Container(
             child: GridView.builder(
+              padding: EdgeInsets.all(30),
+              shrinkWrap: true,
               itemCount: buttons.length,
-              gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4,
+              ),
               itemBuilder: (BuildContext context, int index) {
-                return Button(text: buttons[index]);
+                return Button(
+                  text: buttons[index],
+                );
               },
             ),
           ),
